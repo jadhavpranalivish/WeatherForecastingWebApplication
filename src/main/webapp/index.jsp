@@ -13,11 +13,17 @@
 <body>
     <div class="appContainer">
         <h1 class="title">🌤️ Weather Forecast</h1>
-        <form action="${pageContext.request.contextPath}/MyServlet" method="post" class="searchInput">
+       <%--  <form action="${pageContext.request.contextPath}/MyServlet" method="post" class="searchInput">
             <input type="text" placeholder="Enter City Name" name="city" value="${city != null ? city : ''}" required />
             <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
+        </form>--%>
 
+         <form action="<%= request.getContextPath() %>/MyServlet" method="post" class="searchInput">
+    <input type="text" placeholder="Enter City Name" name="city" 
+           value="<%= (request.getAttribute("city") != null) ? request.getAttribute("city") : "" %>" required />
+    <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+</form>
+         
         <div class="weatherCard">
             <div class="weatherIcon">
                 <img src="" alt="Weather" id="weather-icon">
